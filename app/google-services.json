@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "835029658957",
+    "firebase_url": "https://memoryplus-22063.firebaseio.com",
+    "project_id": "memoryplus-22063",
+    "storage_bucket": "memoryplus-22063.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835029658957:android:c9d98f75e6e8ec89",
+        "android_client_info": {
+          "package_name": "com.mobility.dictwilson.memoryplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835029658957-e4e9k5dqp82o45hrvugv7j8k6jeav0vk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobility.dictwilson.memoryplus",
+            "certificate_hash": "232e5c063016c282d1cc0a12825409e06ae835c0"
+          }
+        },
+        {
+          "client_id": "835029658957-n0q58tgijk2rkq5lneokucmqc2br3ese.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs-RoIS_OkSmWfTwVvBWQ7E5lDT_ZdOZQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835029658957-n0q58tgijk2rkq5lneokucmqc2br3ese.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

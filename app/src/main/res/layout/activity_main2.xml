@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mobility.dictwilson.memoryplus.Main2Activity"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/textview_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Guess the Word" />
+
+    <TextView
+        android:id="@+id/textview_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_info"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="24dp"
+        android:gravity="center"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/edittext_guess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_word"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="20dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/button_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittext_guess"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="CHECK" />
+    <Button
+        android:id="@+id/button_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/button_check"
+        android:layout_marginBottom="74dp"
+        android:text="NEW" />
+
+    <Button
+        android:id="@+id/button_quits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_nexts"
+        android:layout_alignBottom="@+id/button_nexts"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:text="Quit" />
+
+    <Button
+        android:id="@+id/button_nexts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="Next" />
+
+</RelativeLayout>
