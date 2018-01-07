@@ -32,11 +32,11 @@ public class Main5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
 
-        rootRef = FirebaseDatabase.getInstance().getReference();
-        scoresRef = rootRef.child("scores4");
+        //rootRef = FirebaseDatabase.getInstance().getReference();
+        //scoresRef = rootRef.child("scores4");
 
         String s4a = Integer.toString(score);
-        scoresRef.push().setValue(s4a);
+        //scoresRef.push().setValue(s4a);
 
         button13 = (Button)findViewById(R.id.button13);
         button14 = (Button)findViewById(R.id.button14);
@@ -160,8 +160,8 @@ public class Main5Activity extends AppCompatActivity {
         button18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signOut();
-                finishAffinity();
+                //mAuth.signOut();
+                //finishAffinity();
             }
         });
 
@@ -172,7 +172,7 @@ public class Main5Activity extends AppCompatActivity {
             }
         });
 
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
     }
 
     public void checkForWin(){
@@ -186,7 +186,7 @@ public class Main5Activity extends AppCompatActivity {
             Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + scores, Toast.LENGTH_SHORT).show();
 
             String s4b = Integer.toString(scores);
-            scoresRef.push().setValue(s4b);
+            //scoresRef.push().setValue(s4b);
 
             button13.setEnabled(false);
             button14.setEnabled(false);

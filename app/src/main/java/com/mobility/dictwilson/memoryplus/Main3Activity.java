@@ -33,8 +33,8 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        rootRef = FirebaseDatabase.getInstance().getReference();
-        scoresRef = rootRef.child("scores3");
+        //rootRef = FirebaseDatabase.getInstance().getReference();
+        //scoresRef = rootRef.child("scores3");
 
         textview_msg = (TextView)findViewById(R.id.textview_infos);
         edittext_try = (EditText)findViewById(R.id.edittext_try);
@@ -61,16 +61,15 @@ public class Main3Activity extends AppCompatActivity {
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validate();
+                    validate();
             }
         });
 
         button_quitss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                mAuth.signOut();
-                finishAffinity();
+                //mAuth.signOut();
+                //finishAffinity();
             }
         });
 
@@ -81,7 +80,7 @@ public class Main3Activity extends AppCompatActivity {
             }
         });
 
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -93,7 +92,7 @@ public class Main3Activity extends AppCompatActivity {
                 Toast.makeText(this, "Congratulation! You found the number " + numberToFind + " in " + numberTries + " tries! Score: "+ score, Toast.LENGTH_SHORT).show();
 
                 String s3 = Integer.toString(score);
-                scoresRef.push().setValue(s3);
+                //scoresRef.push().setValue(s3);
 
                 button_submit.setVisibility(View.INVISIBLE);
                 button_ok.setVisibility(View.VISIBLE);
@@ -110,7 +109,7 @@ public class Main3Activity extends AppCompatActivity {
   private void newGame(){
       numberToFind = random.nextInt(maxNumber) + 1;
       textview_msg.setText("Guess a Number from 1 to 100");
-      edittext_try.setText("");
+      edittext_try.setText("0");
       numberTries = 0;
   }
 }

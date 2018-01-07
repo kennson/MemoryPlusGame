@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rootRef = FirebaseDatabase.getInstance().getReference();
-        scoresRef = rootRef.child("scores1");
+        //rootRef = FirebaseDatabase.getInstance().getReference();
+        //scoresRef = rootRef.child("scores1");
 
         button_new = (Button)findViewById(R.id.button_new);
         button_next = (Button)findViewById(R.id.button_next);
@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
         button_quit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signOut();
-                finishAffinity();
+                //mAuth.signOut();
+                //finishAffinity();
             }
         });
 
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
     }
 
     private void buttonsLogic(View v){
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
                 button_quit.setVisibility(View.VISIBLE);
 
                 String s1 = Integer.toString(score);
-                scoresRef.push().setValue(s1);
+                //scoresRef.push().setValue(s1);
 
             } else{
                 new Handler().postDelayed(new Runnable() {
@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
         button_quit.setVisibility(View.VISIBLE);
 
         String s1 = Integer.toString(score);
-        scoresRef.push().setValue(s1);
+        //scoresRef.push().setValue(s1);
     }
 
     private void generateButtons(int number){

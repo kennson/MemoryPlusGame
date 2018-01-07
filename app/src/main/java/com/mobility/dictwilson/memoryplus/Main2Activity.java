@@ -1,6 +1,9 @@
 package com.mobility.dictwilson.memoryplus;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +33,10 @@ public class Main2Activity extends AppCompatActivity {
     DatabaseReference rootRef,scoresRef;
     int score = 100, tries = 0;
 
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +51,31 @@ public class Main2Activity extends AppCompatActivity {
         button_quits = (Button)findViewById(R.id.button_quits);
         r = new Random();
 
-        rootRef = FirebaseDatabase.getInstance().getReference();
-        scoresRef = rootRef.child("scores2");
+
+
+        //rootRef = FirebaseDatabase.getInstance().getReference();
+        //scoresRef = rootRef.child("scores2");
 
         newsGame();
+
+        Intent intent = new Intent(Main2Activity.this, ShakeService.class);
+        startService(intent);
+
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
+
 
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +88,7 @@ public class Main2Activity extends AppCompatActivity {
                     Toast.makeText(Main2Activity.this, "Success! You got it in " + tries + " moves! Score: " + score , Toast.LENGTH_SHORT).show();
 
                     String s2 = Integer.toString(score);
-                    scoresRef.push().setValue(s2);
+                    //scoresRef.push().setValue(s2);
 
                 }else{
                     tries++;
@@ -69,7 +97,7 @@ public class Main2Activity extends AppCompatActivity {
                     Toast.makeText(Main2Activity.this, "Try Again!", Toast.LENGTH_SHORT).show();
 
                     String s2 = Integer.toString(score);
-                    scoresRef.push().setValue(s2);
+                    //scoresRef.push().setValue(s2);
                 }
             }
         });
@@ -91,13 +119,12 @@ public class Main2Activity extends AppCompatActivity {
         button_quits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                mAuth.signOut();
-                finishAffinity();
+                //mAuth.signOut();
+                //finishAffinity();
             }
         });
 
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
     }
 
     private String shuffleWord(String word) {
@@ -117,6 +144,20 @@ public class Main2Activity extends AppCompatActivity {
         button_news.setEnabled(false);
         button_check.setEnabled(true);
         textview_info.setText("Guess the Word");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 }
 
