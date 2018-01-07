@@ -7,10 +7,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.IBinder;
 
-/**
- * Created by DICTWilson on 1/7/2018.
- */
-
 public class ShakeService extends Service {
 
     private SensorManager mSensorManager;
@@ -22,14 +18,12 @@ public class ShakeService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+               throw new UnsupportedOperationException("Not yet implemented");
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        // ShakeDetector initialization
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager
                 .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -38,9 +32,6 @@ public class ShakeService extends Service {
 
             @Override
             public void onShake(int count) {
-
-                Intent i = getApplicationContext().getPackageManager().getLaunchIntentForPackage("com.facebook.katana");
-                getApplicationContext().startActivity(i);
 
             }
         });

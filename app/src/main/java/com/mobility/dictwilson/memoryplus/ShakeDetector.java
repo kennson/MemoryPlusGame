@@ -5,9 +5,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-/**
- * Created by DICTWilson on 1/7/2018.
- */
 
 public class ShakeDetector implements SensorEventListener {
 
@@ -44,19 +41,16 @@ public class ShakeDetector implements SensorEventListener {
             float gY = y / SensorManager.GRAVITY_EARTH;
             float gZ = z / SensorManager.GRAVITY_EARTH;
 
-            // gForce will be close to 1 when there is no movement.
             Float f = new Float(gX * gX + gY * gY + gZ * gZ);
             Double d = Math.sqrt(f.doubleValue());
             float gForce = d.floatValue();
 
             if (gForce > SHAKE_THRESHOLD_GRAVITY) {
                 final long now = System.currentTimeMillis();
-                // ignore shake events too close to each other (500ms)
                 if (mShakeTimestamp + SHAKE_SLOP_TIME_MS > now) {
                     return;
                 }
 
-                // reset the shake count after 3 seconds of no shakes
                 if (mShakeTimestamp + SHAKE_COUNT_RESET_TIME_MS < now) {
                     mShakeCount = 0;
                 }
