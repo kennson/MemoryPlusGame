@@ -20,7 +20,7 @@ public class Main6Activity extends AppCompatActivity {
     TextView textView2, textView4, textView6, textView8;
 
     private FirebaseAuth mAuth;
-    DatabaseReference root1Ref, root2Ref, root3Ref, root4Ref;
+    DatabaseReference root1Ref, root2Ref, root3Ref, root4Ref, root5Ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +36,14 @@ public class Main6Activity extends AppCompatActivity {
         textView6 = (TextView)findViewById(R.id.textView6);
         textView8 = (TextView)findViewById(R.id.textView8);
 
-        //root1Ref = FirebaseDatabase.getInstance().getReference().child("scores1");
-        //root2Ref = FirebaseDatabase.getInstance().getReference().child("scores2");
-        //root3Ref = FirebaseDatabase.getInstance().getReference().child("scores3");
-        //root4Ref = FirebaseDatabase.getInstance().getReference().child("scores4");
 
-        /*
+        root1Ref = FirebaseDatabase.getInstance().getReference().child("scores1");
+        root2Ref = FirebaseDatabase.getInstance().getReference().child("scores2");
+        root3Ref = FirebaseDatabase.getInstance().getReference().child("scores3");
+        root4Ref = FirebaseDatabase.getInstance().getReference().child("scores4");
+        root5Ref = FirebaseDatabase.getInstance().getReference().child("scores4");
+
+
         button20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,12 +104,11 @@ public class Main6Activity extends AppCompatActivity {
                 });
             }
         });
-        */
 
         button21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //mAuth.signOut();
+                mAuth.signOut();
                 finishAffinity();
             }
         });
@@ -115,11 +116,11 @@ public class Main6Activity extends AppCompatActivity {
         button22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Main6Activity.this,MainActivity.class));
+                startActivity(new Intent(Main6Activity.this,Main7Activity.class));
             }
         });
 
-        //mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
     }
 }

@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //rootRef = FirebaseDatabase.getInstance().getReference();
-        //scoresRef = rootRef.child("scores1");
+        rootRef = FirebaseDatabase.getInstance().getReference();
+        scoresRef = rootRef.child("scores1");
 
         button_new = (Button)findViewById(R.id.button_new);
         button_next = (Button)findViewById(R.id.button_next);
@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
         button_quit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //mAuth.signOut();
-                //finishAffinity();
+                mAuth.signOut();
+                finishAffinity();
             }
         });
 
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
     }
 
     private void buttonsLogic(View v){
@@ -228,13 +228,13 @@ public class MainActivity extends AppCompatActivity {
         if(curGuess == curLevel){
             disableButtons();
             if(curLevel == 12){
-                Toast.makeText(MainActivity.this, "Success! You got it in " + tries + " moves! Score: " + score, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Success! You got it in " + tries + " moves! Score: " + score, Toast.LENGTH_LONG).show();
                 button_new.setVisibility(View.VISIBLE);
                 button_next.setVisibility(View.VISIBLE);
                 button_quit.setVisibility(View.VISIBLE);
 
                 String s1 = Integer.toString(score);
-                //scoresRef.push().setValue(s1);
+                scoresRef.push().setValue(s1);
 
             } else{
                 new Handler().postDelayed(new Runnable() {
@@ -251,14 +251,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void lostGame() {
         score = 90;
-        Toast.makeText(MainActivity.this, "You got it in " + tries + " moves! Try Again! Score: " + score, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "You got it in " + tries + " moves! Try Again! Score: " + score, Toast.LENGTH_LONG).show();
         disableButtons();
         button_new.setVisibility(View.VISIBLE);
         button_next.setVisibility(View.VISIBLE);
         button_quit.setVisibility(View.VISIBLE);
 
         String s1 = Integer.toString(score);
-        //scoresRef.push().setValue(s1);
+        scoresRef.push().setValue(s1);
     }
 
     private void generateButtons(int number){

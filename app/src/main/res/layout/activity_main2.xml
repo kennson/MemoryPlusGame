@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mobility.dictwilson.memoryplus.Main2Activity"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context="com.mobility.dictwilson.memoryplus.Main2Activity">
 
 
     <TextView
@@ -23,9 +23,9 @@
         android:layout_below="@+id/textview_info"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:textSize="24dp"
         android:gravity="center"
-        android:text="" />
+        android:text=""
+        android:textSize="24dp" />
 
     <EditText
         android:id="@+id/edittext_guess"
@@ -33,9 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_word"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_marginTop="20dp"
         android:text="" />
 
     <Button
@@ -46,6 +46,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="CHECK" />
+
     <Button
         android:id="@+id/button_news"
         android:layout_width="match_parent"
@@ -74,5 +75,14 @@
         android:layout_marginBottom="15dp"
         android:layout_marginEnd="15dp"
         android:text="Next" />
+
+    <Button
+        android:id="@+id/button_shuffle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_check"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="SHUFFLE" />
 
 </RelativeLayout>

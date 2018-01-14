@@ -24,14 +24,19 @@ import java.util.Random;
 public class Main2Activity extends AppCompatActivity {
     TextView textview_info, textview_word;
     EditText edittext_guess;
-    Button button_check, button_news, button_nexts, button_quits;
+    Button button_check, button_news, button_nexts, button_quits, button_shuffle;
     Random r;
     String currentWord;
     String[] dictionary = {
-            "one","two","three","four","five","six","seven","eight","nine","ten"};
+            "able","club","does","evil","five","gold","host","kind","life","mine"};
+    String[] dictionary1 = {
+            "about","below","cause","dealt","eager","fight","grant","ideal","lucky","north"};
+    String[] dictionary2 = {
+            "abroad","belong","carbon","danger","engage","father","handle","liquid","manage","number"};
+
     private FirebaseAuth mAuth;
     DatabaseReference rootRef,scoresRef;
-    int score = 100, tries = 0;
+    int score = 100, tries = 0, round = 3;
 
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -49,12 +54,13 @@ public class Main2Activity extends AppCompatActivity {
         button_news = (Button) findViewById(R.id.button_news);
         button_nexts = (Button)findViewById(R.id.button_nexts);
         button_quits = (Button)findViewById(R.id.button_quits);
+        button_shuffle = (Button)findViewById(R.id.button_shuffle);
         r = new Random();
 
 
 
-        //rootRef = FirebaseDatabase.getInstance().getReference();
-        //scoresRef = rootRef.child("scores2");
+        rootRef = FirebaseDatabase.getInstance().getReference();
+        scoresRef = rootRef.child("scores2");
 
         newsGame();
 
@@ -75,6 +81,13 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
+        button_shuffle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview_word.setText(shuffleWord(currentWord));
+            }
+        });
+
 
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,19 +97,26 @@ public class Main2Activity extends AppCompatActivity {
                     button_check.setEnabled(false);
                     button_news.setEnabled(true);
                     tries++;
-                    Toast.makeText(Main2Activity.this, "Success! You got it in " + tries + " moves! Score: " + score , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Main2Activity.this, "Success! You got it in " + tries + " moves! Score: " + score , Toast.LENGTH_LONG).show();
 
                     String s2 = Integer.toString(score);
-                    //scoresRef.push().setValue(s2);
+                    scoresRef.push().setValue(s2);
+
+                    round++;
+                    if (round==4) {
+                        newsGame2();
+                    }else if (round==5){
+                        newsGame3();
+                    }
 
                 }else{
                     tries++;
                     score--;
                     textview_info.setText("Try Again!");
-                    Toast.makeText(Main2Activity.this, "Try Again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Main2Activity.this, "Try Again!", Toast.LENGTH_LONG).show();
 
                     String s2 = Integer.toString(score);
-                    //scoresRef.push().setValue(s2);
+                    scoresRef.push().setValue(s2);
                 }
             }
         });
@@ -118,12 +138,12 @@ public class Main2Activity extends AppCompatActivity {
         button_quits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //mAuth.signOut();
-                //finishAffinity();
+                mAuth.signOut();
+                finishAffinity();
             }
         });
 
-        //mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
     }
 
     private String shuffleWord(String word) {
@@ -138,6 +158,24 @@ public class Main2Activity extends AppCompatActivity {
 
     private void newsGame(){
         currentWord = dictionary[r.nextInt(dictionary.length)];
+        textview_word.setText(shuffleWord(currentWord));
+        edittext_guess.setText("");
+        button_news.setEnabled(false);
+        button_check.setEnabled(true);
+        textview_info.setText("Guess the Word");
+    }
+
+    private void newsGame2(){
+        currentWord = dictionary1[r.nextInt(dictionary1.length)];
+        textview_word.setText(shuffleWord(currentWord));
+        edittext_guess.setText("");
+        button_news.setEnabled(false);
+        button_check.setEnabled(true);
+        textview_info.setText("Guess the Word");
+    }
+
+    private void newsGame3(){
+        currentWord = dictionary2[r.nextInt(dictionary2.length)];
         textview_word.setText(shuffleWord(currentWord));
         edittext_guess.setText("");
         button_news.setEnabled(false);
