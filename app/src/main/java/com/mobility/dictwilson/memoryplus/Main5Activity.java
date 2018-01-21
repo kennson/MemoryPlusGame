@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class Main5Activity extends AppCompatActivity {
 
-    Button button13, button14, button15, button16, button17, button18, button19;
+    Button button13, button14, button15, button16, button17, button19;
 
     String buttonColor1, buttonColor2, buttonColor3, buttonColor4;
 
@@ -43,7 +43,6 @@ public class Main5Activity extends AppCompatActivity {
         button15 = (Button)findViewById(R.id.button15);
         button16 = (Button)findViewById(R.id.button16);
         button17 = (Button)findViewById(R.id.button17);
-        button18 = (Button)findViewById(R.id.button18);
         button19 = (Button)findViewById(R.id.button19);
 
         r = new Random();
@@ -157,14 +156,6 @@ public class Main5Activity extends AppCompatActivity {
             }
         });
 
-        button18.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                finishAffinity();
-            }
-        });
-
         button19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -183,6 +174,34 @@ public class Main5Activity extends AppCompatActivity {
                 buttonColor2.equals("green") &&
                 buttonColor3.equals("green") &&
                 buttonColor4.equals("green")){
+            Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + scores, Toast.LENGTH_LONG).show();
+
+            String s4b = Integer.toString(scores);
+            scoresRef.push().setValue(s4b);
+
+            button13.setEnabled(false);
+            button14.setEnabled(false);
+            button15.setEnabled(false);
+            button16.setEnabled(false);
+
+        } else if(buttonColor1.equals("red")&&
+                buttonColor2.equals("red") &&
+                buttonColor3.equals("red") &&
+                buttonColor4.equals("red")){
+            Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + scores, Toast.LENGTH_LONG).show();
+
+            String s4b = Integer.toString(scores);
+            scoresRef.push().setValue(s4b);
+
+            button13.setEnabled(false);
+            button14.setEnabled(false);
+            button15.setEnabled(false);
+            button16.setEnabled(false);
+
+        } else if(buttonColor1.equals("blue")&&
+                buttonColor2.equals("blue") &&
+                buttonColor3.equals("blue") &&
+                buttonColor4.equals("blue")){
             Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + scores, Toast.LENGTH_LONG).show();
 
             String s4b = Integer.toString(scores);

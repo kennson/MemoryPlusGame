@@ -18,7 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button_new, button_next, button_quit;
+    Button button_new, button_next;
     Button button1, button2, button3, button4,
             button5, button6, button7, button8,
             button9, button10, button11, button12;
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         button_new = (Button)findViewById(R.id.button_new);
         button_next = (Button)findViewById(R.id.button_next);
-        button_quit = (Button)findViewById(R.id.button_quit);
 
         button1 = (Button)findViewById(R.id.button1);
         button2 = (Button)findViewById(R.id.button2);
@@ -87,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 button_new.setVisibility(View.INVISIBLE);
                 button_next.setVisibility(View.INVISIBLE);
-                button_quit.setVisibility(View.INVISIBLE);
                 curGuess = 0;
                 curLevel = 1;
                 generateButtons(curLevel);
@@ -101,13 +99,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button_quit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                finishAffinity();
-            }
-        });
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,7 +222,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Success! You got it in " + tries + " moves! Score: " + score, Toast.LENGTH_LONG).show();
                 button_new.setVisibility(View.VISIBLE);
                 button_next.setVisibility(View.VISIBLE);
-                button_quit.setVisibility(View.VISIBLE);
 
                 String s1 = Integer.toString(score);
                 scoresRef.push().setValue(s1);
@@ -255,7 +245,6 @@ public class MainActivity extends AppCompatActivity {
         disableButtons();
         button_new.setVisibility(View.VISIBLE);
         button_next.setVisibility(View.VISIBLE);
-        button_quit.setVisibility(View.VISIBLE);
 
         String s1 = Integer.toString(score);
         scoresRef.push().setValue(s1);

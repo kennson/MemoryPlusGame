@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Main7Activity extends AppCompatActivity {
 
-    Button button27, button28, button29, button30;
+    Button button28, button30;
     EditText lastname, firstname, email, birthdate;
     private FirebaseAuth mAuth;
     DatabaseReference rootRef,lastnameRef, firstRef, firstnameRef, emailRef, emailaddRef, birthRef, birthdateRef;
@@ -24,9 +24,7 @@ public class Main7Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main7);
 
-        button27 = (Button) findViewById(R.id.button27);
         button28 = (Button) findViewById(R.id.button28);
-        button29 = (Button) findViewById(R.id.button29);
         button30 = (Button) findViewById(R.id.button30);
 
         lastname = (EditText)findViewById(R.id.editText);
@@ -55,21 +53,6 @@ public class Main7Activity extends AppCompatActivity {
                 String birthdates = birthdate.toString();
                 birthdateRef.push().setValue(birthdates);
                 Toast.makeText(Main7Activity.this, "Account Registered!", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        button29.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                finishAffinity();
-            }
-        });
-
-        button27.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
 

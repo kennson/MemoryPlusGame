@@ -82,40 +82,33 @@
         android:ems="10"
         android:inputType="date" />
 
-    <Button
-        android:id="@+id/button27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView12"
-        android:layout_below="@+id/textView13"
-        android:layout_marginTop="37dp"
-        android:text="Cancel" />
 
     <Button
         android:id="@+id/button28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button27"
-        android:layout_alignBottom="@+id/button27"
         android:layout_alignEnd="@+id/editText5"
-        android:text="Ok" />
+        android:layout_below="@+id/editText5"
+        android:layout_marginTop="26dp"
+        android:text="Register" />
 
-    <Button
-        android:id="@+id/button29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/button27"
-        android:layout_marginBottom="16dp"
-        android:text="Quit" />
 
     <Button
         android:id="@+id/button30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button29"
-        android:layout_alignBottom="@+id/button29"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/button28"
+        android:layout_marginEnd="15dp"
         android:text="Next" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginTop="19dp"
+        android:text="Registration" />
 
 </RelativeLayout>

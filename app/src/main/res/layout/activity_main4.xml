@@ -38,7 +38,7 @@
             android:id="@+id/status"
             style="@style/ThemeOverlay.MyTextDetail"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorNotify"
             android:text="You are not logged in !" />
         <RelativeLayout
             android:layout_width="match_parent"

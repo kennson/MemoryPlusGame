@@ -294,7 +294,7 @@ public class Main4Activity extends AppCompatActivity implements View.OnClickList
             mStatusText.setText(R.string.signed_out);;
         } else {
             mPhoneNumberViews.setVisibility(View.GONE);
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, Main7Activity.class);
             startActivity(intent);
             finish();
 

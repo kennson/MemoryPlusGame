@@ -19,7 +19,7 @@ public class Main3Activity extends AppCompatActivity {
 
     private TextView textview_msg;
     private EditText edittext_try;
-    private Button button_submit, button_ok, button_quitss, button_nextss;
+    private Button button_submit, button_ok, button_nextss;
     private int numberToFind, numberTries;
     public static final int maxNumber = 100;
     public static final Random random = new Random();
@@ -40,7 +40,6 @@ public class Main3Activity extends AppCompatActivity {
         edittext_try = (EditText)findViewById(R.id.edittext_try);
         button_ok = (Button)findViewById(R.id.button_ok);
         button_submit = (Button)findViewById(R.id.button_submit);
-        button_quitss = (Button)findViewById(R.id.button_quitss);
         button_nextss = (Button)findViewById(R.id.button_nextss);
         button_submit.setVisibility(View.INVISIBLE);
 
@@ -51,7 +50,6 @@ public class Main3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 button_submit.setVisibility(View.VISIBLE);
                 button_ok.setVisibility(View.INVISIBLE);
-                button_quitss.setVisibility(View.INVISIBLE);
                 button_nextss.setVisibility(View.INVISIBLE);
                 edittext_try.setVisibility(View.VISIBLE);
 
@@ -62,14 +60,6 @@ public class Main3Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                     validate();
-            }
-        });
-
-        button_quitss.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                finishAffinity();
             }
         });
 
@@ -96,7 +86,6 @@ public class Main3Activity extends AppCompatActivity {
 
                 button_submit.setVisibility(View.INVISIBLE);
                 button_ok.setVisibility(View.VISIBLE);
-                button_quitss.setVisibility(View.VISIBLE);
                 button_nextss.setVisibility(View.VISIBLE);
                 newGame();
             }else if (n > numberToFind){

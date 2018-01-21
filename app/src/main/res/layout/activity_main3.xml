@@ -22,9 +22,9 @@
         android:layout_alignParentTop="true"
         android:layout_below="@+id/textview_infos"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_marginTop="50dp"/>
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/button_submit"
@@ -55,14 +55,15 @@
         android:layout_marginEnd="15dp"
         android:text="Next" />
 
-    <Button
-        android:id="@+id/button_quitss"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button_nextss"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:text="Quit" />
+        android:layout_below="@+id/button_submit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:textAlignment="center"
+        android:text="Shake phone once to change the word" />
 
 
 </RelativeLayout>

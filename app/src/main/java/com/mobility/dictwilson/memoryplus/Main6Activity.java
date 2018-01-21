@@ -16,18 +16,18 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Main6Activity extends AppCompatActivity {
 
-    Button button20, button21, button22;
-    TextView textView2, textView4, textView6, textView8;
+    Button button18, button20, button21, button22;
+    TextView textView2, textView4, textView6, textView8, textView16;
 
     private FirebaseAuth mAuth;
-    DatabaseReference root1Ref, root2Ref, root3Ref, root4Ref, root5Ref;
+    DatabaseReference root1Ref, root2Ref, root3Ref, root4Ref, root5Ref, root16Ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
 
-
+        button18 = (Button) findViewById(R.id.button18);
         button20 = (Button) findViewById(R.id.button20);
         button21 = (Button) findViewById(R.id.button21);
         button22 = (Button) findViewById(R.id.button22);
@@ -35,14 +35,33 @@ public class Main6Activity extends AppCompatActivity {
         textView4 = (TextView)findViewById(R.id.textView4);
         textView6 = (TextView)findViewById(R.id.textView6);
         textView8 = (TextView)findViewById(R.id.textView8);
-
+        textView16 = (TextView)findViewById(R.id.textView16);
 
         root1Ref = FirebaseDatabase.getInstance().getReference().child("scores1");
         root2Ref = FirebaseDatabase.getInstance().getReference().child("scores2");
         root3Ref = FirebaseDatabase.getInstance().getReference().child("scores3");
         root4Ref = FirebaseDatabase.getInstance().getReference().child("scores4");
         root5Ref = FirebaseDatabase.getInstance().getReference().child("scores4");
+        root16Ref = FirebaseDatabase.getInstance().getReference().child("lastname");
 
+        button18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String lname = textView16.getText().toString();
+                String score1 = textView2.getText().toString();
+                String score2 = textView4.getText().toString();
+                String score3 = textView6.getText().toString();
+                String score4 = textView8.getText().toString();
+
+                Intent intent = new Intent(Main6Activity.this, Main8Activity.class);
+                intent.putExtra("LName",lname);
+                intent.putExtra("Score1",score1);
+                intent.putExtra("Score2",score2);
+                intent.putExtra("Score3",score3);
+                intent.putExtra("Score4",score4);
+                startActivity(intent);
+            }
+        });
 
         button20.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +121,20 @@ public class Main6Activity extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
                     }
                 });
+
+                root16Ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for(DataSnapshot postSnapshot:dataSnapshot.getChildren()) {
+                            String s16 = postSnapshot.getValue(String.class);
+                            String lastname = s16.toString();
+                            textView16.setText(lastname);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
             }
         });
 
@@ -116,11 +149,11 @@ public class Main6Activity extends AppCompatActivity {
         button22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Main6Activity.this,Main7Activity.class));
+                startActivity(new Intent(Main6Activity.this,MainActivity.class));
             }
         });
 
         mAuth = FirebaseAuth.getInstance();
-
     }
+
 }

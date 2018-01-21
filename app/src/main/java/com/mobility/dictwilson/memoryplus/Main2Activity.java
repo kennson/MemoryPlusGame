@@ -24,7 +24,7 @@ import java.util.Random;
 public class Main2Activity extends AppCompatActivity {
     TextView textview_info, textview_word;
     EditText edittext_guess;
-    Button button_check, button_news, button_nexts, button_quits, button_shuffle;
+    Button button_check, button_news, button_nexts, button_shuffle;
     Random r;
     String currentWord;
     String[] dictionary = {
@@ -36,7 +36,7 @@ public class Main2Activity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     DatabaseReference rootRef,scoresRef;
-    int score = 100, tries = 0, round = 3;
+    int score = 100, tries = 0, round = 3, shuffle = 2;
 
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -53,7 +53,6 @@ public class Main2Activity extends AppCompatActivity {
         button_check = (Button) findViewById(R.id.button_check);
         button_news = (Button) findViewById(R.id.button_news);
         button_nexts = (Button)findViewById(R.id.button_nexts);
-        button_quits = (Button)findViewById(R.id.button_quits);
         button_shuffle = (Button)findViewById(R.id.button_shuffle);
         r = new Random();
 
@@ -84,7 +83,13 @@ public class Main2Activity extends AppCompatActivity {
         button_shuffle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textview_word.setText(shuffleWord(currentWord));
+                if(shuffle==0){
+                    Toast.makeText(Main2Activity.this, "Shuffle consumed!", Toast.LENGTH_LONG).show();
+                }else {
+                    textview_word.setText(shuffleWord(currentWord));
+                    shuffle--;
+                }
+
             }
         });
 
@@ -135,13 +140,6 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
-        button_quits.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                finishAffinity();
-            }
-        });
 
         mAuth = FirebaseAuth.getInstance();
     }
