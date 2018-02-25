@@ -45,6 +45,8 @@ public class Main5Activity extends AppCompatActivity {
         button17 = (Button)findViewById(R.id.button17);
         button19 = (Button)findViewById(R.id.button19);
 
+        button19.setVisibility(View.INVISIBLE);
+
         r = new Random();
         int temp;
 
@@ -189,6 +191,8 @@ public class Main5Activity extends AppCompatActivity {
             button15.setEnabled(false);
             button16.setEnabled(false);
 
+            button19.setVisibility(View.VISIBLE);
+
         } else if(buttonColor1.equals("red")&&
                 buttonColor2.equals("red") &&
                 buttonColor3.equals("red") &&
@@ -203,6 +207,8 @@ public class Main5Activity extends AppCompatActivity {
             button15.setEnabled(false);
             button16.setEnabled(false);
 
+            button19.setVisibility(View.VISIBLE);
+
         } else if(buttonColor1.equals("blue")&&
                 buttonColor2.equals("blue") &&
                 buttonColor3.equals("blue") &&
@@ -216,6 +222,8 @@ public class Main5Activity extends AppCompatActivity {
             button14.setEnabled(false);
             button15.setEnabled(false);
             button16.setEnabled(false);
+
+            button19.setVisibility(View.VISIBLE);
 
         }
     }

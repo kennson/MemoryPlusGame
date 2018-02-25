@@ -42,7 +42,7 @@ public class Main3Activity extends AppCompatActivity {
         button_submit = (Button)findViewById(R.id.button_submit);
         button_nextss = (Button)findViewById(R.id.button_nextss);
         button_submit.setVisibility(View.INVISIBLE);
-
+        button_nextss.setVisibility(View.INVISIBLE);
         newGame();
 
         button_ok.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +86,6 @@ public class Main3Activity extends AppCompatActivity {
 
                 String s3 = Integer.toString(score);
                 scoresRef.push().setValue(s3);
-
                 button_submit.setVisibility(View.INVISIBLE);
                 button_ok.setVisibility(View.VISIBLE);
                 button_nextss.setVisibility(View.VISIBLE);

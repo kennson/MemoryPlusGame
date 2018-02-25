@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         button_new = (Button)findViewById(R.id.button_new);
         button_next = (Button)findViewById(R.id.button_next);
+        button_next.setVisibility(View.INVISIBLE);
 
         button1 = (Button)findViewById(R.id.button1);
         button2 = (Button)findViewById(R.id.button2);

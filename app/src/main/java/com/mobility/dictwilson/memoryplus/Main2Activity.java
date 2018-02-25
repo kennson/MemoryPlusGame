@@ -61,7 +61,7 @@ public class Main2Activity extends AppCompatActivity {
 
         rootRef = FirebaseDatabase.getInstance().getReference();
         scoresRef = rootRef.child("scores2");
-
+        button_nexts.setVisibility(View.INVISIBLE);
 
 
         newsGame();
@@ -106,7 +106,7 @@ public class Main2Activity extends AppCompatActivity {
                     button_news.setEnabled(true);
                     tries++;
                     Toast.makeText(Main2Activity.this, "Success! You got it in " + tries + " moves! Score: " + score , Toast.LENGTH_LONG).show();
-
+                    button_nexts.setVisibility(View.VISIBLE);
                     String s2 = Integer.toString(score);
                     scoresRef.push().setValue(s2);
 
