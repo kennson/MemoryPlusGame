@@ -123,7 +123,7 @@ public class Main2Activity extends AppCompatActivity {
                     score--;
                     textview_info.setText("Try Again!");
                     Toast.makeText(Main2Activity.this, "Try Again!", Toast.LENGTH_LONG).show();
-
+                    //button_nexts.setVisibility(View.VISIBLE);
                     String s2 = Integer.toString(score);
                     scoresRef.push().setValue(s2);
                 }

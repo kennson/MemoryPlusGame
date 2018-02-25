@@ -92,8 +92,10 @@ public class Main3Activity extends AppCompatActivity {
                 newGame();
             }else if (n > numberToFind){
                 textview_msg.setText(R.string.too_high);
+                button_nextss.setVisibility(View.VISIBLE);
             }else if ( n < numberToFind){
                 textview_msg.setText(R.string.too_low);
+                button_nextss.setVisibility(View.VISIBLE);
             }
   }
 

@@ -45,7 +45,7 @@ public class Main5Activity extends AppCompatActivity {
         button17 = (Button)findViewById(R.id.button17);
         button19 = (Button)findViewById(R.id.button19);
 
-        button19.setVisibility(View.INVISIBLE);
+        button19.setVisibility(View.VISIBLE);
 
         r = new Random();
         int temp;
@@ -223,7 +223,7 @@ public class Main5Activity extends AppCompatActivity {
             button15.setEnabled(false);
             button16.setEnabled(false);
 
-            button19.setVisibility(View.VISIBLE);
+            //button19.setVisibility(View.VISIBLE);
 
         }
     }
