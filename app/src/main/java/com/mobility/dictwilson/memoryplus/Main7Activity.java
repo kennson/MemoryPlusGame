@@ -17,7 +17,7 @@ public class Main7Activity extends AppCompatActivity {
     Button button28, button30;
     EditText lastname, firstname, email, birthdate;
     private FirebaseAuth mAuth;
-    DatabaseReference rootRef,lastnameRef, firstRef, firstnameRef, emailRef, emailaddRef, birthRef, birthdateRef;
+    DatabaseReference rootRef,lastnameRef, dict2Ref, dict3Ref, firstnameRef, emailRef, emailaddRef, birthRef, birthdateRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class Main7Activity extends AppCompatActivity {
 
         button28 = (Button) findViewById(R.id.button28);
         button30 = (Button) findViewById(R.id.button30);
+        button30.setVisibility(View.INVISIBLE);
 
         lastname = (EditText)findViewById(R.id.editText);
         firstname = (EditText)findViewById(R.id.editText2);
@@ -34,25 +35,33 @@ public class Main7Activity extends AppCompatActivity {
 
         rootRef = FirebaseDatabase.getInstance().getReference();
         lastnameRef = rootRef.child("lastname");
-        rootRef = FirebaseDatabase.getInstance().getReference();
+        //rootRef = FirebaseDatabase.getInstance().getReference();
         firstnameRef = rootRef.child("firstname");
-        rootRef = FirebaseDatabase.getInstance().getReference();
+        //rootRef = FirebaseDatabase.getInstance().getReference();
         emailaddRef = rootRef.child("emailaddress");
-        rootRef = FirebaseDatabase.getInstance().getReference();
+        //rootRef = FirebaseDatabase.getInstance().getReference();
         birthdateRef = rootRef.child("birthdate");
+        //dict2Ref = rootRef.child("dictionary2");
+        //dict3Ref = rootRef.child("dictionary3");
 
         button28.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String lastnames = lastname.toString();
+                String lastnames = lastname.getText().toString();
                 lastnameRef.push().setValue(lastnames);
-                String firstnames = firstname.toString();
+                //String dict2names = lastname.getText().toString();
+                //dict2Ref.push().setValue(dict2names);
+                //String dict3names = firstname.getText().toString();
+                //dict3Ref.push().setValue(dict3names);
+                String firstnames = firstname.getText().toString();
                 firstnameRef.push().setValue(firstnames);
-                String emails = email.toString();
+                String emails = email.getText().toString();
                 emailaddRef.push().setValue(emails);
-                String birthdates = birthdate.toString();
+                String birthdates = birthdate.getText().toString();
                 birthdateRef.push().setValue(birthdates);
                 Toast.makeText(Main7Activity.this, "Account Registered!", Toast.LENGTH_LONG).show();
+                button30.setVisibility(View.VISIBLE);
+
             }
         });
 

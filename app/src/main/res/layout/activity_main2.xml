@@ -76,4 +76,14 @@
         android:layout_marginTop="11dp"
         android:text="SHUFFLE" />
 
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_shuffle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Shake phone to change the word" />
+
+
 </RelativeLayout>

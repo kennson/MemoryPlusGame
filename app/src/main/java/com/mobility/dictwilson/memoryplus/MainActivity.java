@@ -95,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //score = 0;
+                //String s1 = Integer.toString(score);
+                //scoresRef.push().setValue(s1);
                 startActivity(new Intent(MainActivity.this,Main2Activity.class));
             }
         });

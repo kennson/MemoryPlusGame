@@ -13,9 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -27,15 +31,14 @@ public class Main2Activity extends AppCompatActivity {
     Button button_check, button_news, button_nexts, button_shuffle;
     Random r;
     String currentWord;
-    String[] dictionary = {
-            "able","club","does","evil","five","gold","host","kind","life","mine"};
-    String[] dictionary1 = {
-            "about","below","cause","dealt","eager","fight","grant","ideal","lucky","north"};
-    String[] dictionary2 = {
-            "abroad","belong","carbon","danger","engage","father","handle","liquid","manage","number"};
+
+    //String[] dict1 = {"able","club","does"};
+    //String[] dict2 = {"about","below","cause"};
+    //String[] dict3 = {"abroad","belong","carbon"};
+
 
     private FirebaseAuth mAuth;
-    DatabaseReference rootRef,scoresRef;
+    DatabaseReference rootRef,scoresRef, dict1Ref, tvWord, tvWord2, tvWord3;
     int score = 100, tries = 0, round = 3, shuffle = 2;
 
     private SensorManager mSensorManager;
@@ -56,10 +59,10 @@ public class Main2Activity extends AppCompatActivity {
         button_shuffle = (Button)findViewById(R.id.button_shuffle);
         r = new Random();
 
-
-
         rootRef = FirebaseDatabase.getInstance().getReference();
         scoresRef = rootRef.child("scores2");
+
+
 
         newsGame();
 
@@ -107,6 +110,7 @@ public class Main2Activity extends AppCompatActivity {
                     String s2 = Integer.toString(score);
                     scoresRef.push().setValue(s2);
 
+
                     round++;
                     if (round==4) {
                         newsGame2();
@@ -136,6 +140,9 @@ public class Main2Activity extends AppCompatActivity {
         button_nexts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //score = 0;
+                //String s2 = Integer.toString(score);
+                //scoresRef.push().setValue(s2);
                 startActivity(new Intent(Main2Activity.this,Main3Activity.class));
             }
         });
@@ -155,30 +162,106 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     private void newsGame(){
-        currentWord = dictionary[r.nextInt(dictionary.length)];
-        textview_word.setText(shuffleWord(currentWord));
+
         edittext_guess.setText("");
         button_news.setEnabled(false);
         button_check.setEnabled(true);
         textview_info.setText("Guess the Word");
+        tvWord = FirebaseDatabase.getInstance().getReference().child("dictionary1");
+        tvWord.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot != null) {
+                    Random random = new Random();
+                    int index = random.nextInt((int) dataSnapshot.getChildrenCount());
+                    int count = 0;
+                    for(DataSnapshot postSnapshot:dataSnapshot.getChildren()) {
+                        if (count == index) {
+                        String tvw = postSnapshot.getValue(String.class);
+                        String dicts1 = tvw.toString();
+                            textview_word.setText(shuffleWord(dicts1));
+                            currentWord = dicts1;
+                            return;
+                        }
+                        count++;
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
 
     private void newsGame2(){
-        currentWord = dictionary1[r.nextInt(dictionary1.length)];
-        textview_word.setText(shuffleWord(currentWord));
+        shuffle=2;
+        //currentWord = dict2[r.nextInt(dict2.length)];
+        //textview_word.setText(shuffleWord(currentWord));
         edittext_guess.setText("");
         button_news.setEnabled(false);
         button_check.setEnabled(true);
         textview_info.setText("Guess the Word");
+        tvWord2 = FirebaseDatabase.getInstance().getReference().child("dictionary2");
+        tvWord2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot != null) {
+                    Random random = new Random();
+                    int index = random.nextInt((int) dataSnapshot.getChildrenCount());
+                    int count = 0;
+                    for(DataSnapshot postSnapshot:dataSnapshot.getChildren()) {
+                        if (count == index) {
+                            String tvw = postSnapshot.getValue(String.class);
+                            String dicts1 = tvw.toString();
+                            textview_word.setText(shuffleWord(dicts1));
+                            currentWord = dicts1;
+                            return;
+                        }
+                        count++;
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
 
     private void newsGame3(){
-        currentWord = dictionary2[r.nextInt(dictionary2.length)];
-        textview_word.setText(shuffleWord(currentWord));
+        shuffle=2;
+        //currentWord = dict3[r.nextInt(dict3.length)];
+        //textview_word.setText(shuffleWord(currentWord));
         edittext_guess.setText("");
         button_news.setEnabled(false);
         button_check.setEnabled(true);
         textview_info.setText("Guess the Word");
+        tvWord3 = FirebaseDatabase.getInstance().getReference().child("dictionary3");
+        tvWord3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot != null) {
+                    Random random = new Random();
+                    int index = random.nextInt((int) dataSnapshot.getChildrenCount());
+                    int count = 0;
+                    for(DataSnapshot postSnapshot:dataSnapshot.getChildren()) {
+                        if (count == index) {
+                            String tvw = postSnapshot.getValue(String.class);
+                            String dicts1 = tvw.toString();
+                            textview_word.setText(shuffleWord(dicts1));
+                            currentWord = dicts1;
+                            return;
+                        }
+                        count++;
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
 
     @Override

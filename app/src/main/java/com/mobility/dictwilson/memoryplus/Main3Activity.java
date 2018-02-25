@@ -66,6 +66,9 @@ public class Main3Activity extends AppCompatActivity {
         button_nextss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //score = 0;
+                //String s3 = Integer.toString(score);
+                //scoresRef.push().setValue(s3);
                 startActivity(new Intent(Main3Activity.this,Main5Activity.class));
             }
         });

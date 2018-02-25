@@ -159,6 +159,9 @@ public class Main5Activity extends AppCompatActivity {
         button19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //score = 0;
+                //String s4c = Integer.toString(score);
+                //scoresRef.push().setValue(s4c);
                 startActivity(new Intent(Main5Activity.this,Main6Activity.class));
             }
         });
@@ -170,11 +173,13 @@ public class Main5Activity extends AppCompatActivity {
         score++;
         scores--;
 
+        int result = Math.round ((scores / 100) * 10);
+
         if(buttonColor1.equals("green")&&
                 buttonColor2.equals("green") &&
                 buttonColor3.equals("green") &&
                 buttonColor4.equals("green")){
-            Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + scores, Toast.LENGTH_LONG).show();
+            Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + result, Toast.LENGTH_LONG).show();
 
             String s4b = Integer.toString(scores);
             scoresRef.push().setValue(s4b);
@@ -188,7 +193,7 @@ public class Main5Activity extends AppCompatActivity {
                 buttonColor2.equals("red") &&
                 buttonColor3.equals("red") &&
                 buttonColor4.equals("red")){
-            Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + scores, Toast.LENGTH_LONG).show();
+            Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + result, Toast.LENGTH_LONG).show();
 
             String s4b = Integer.toString(scores);
             scoresRef.push().setValue(s4b);
@@ -202,7 +207,7 @@ public class Main5Activity extends AppCompatActivity {
                 buttonColor2.equals("blue") &&
                 buttonColor3.equals("blue") &&
                 buttonColor4.equals("blue")){
-            Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + scores, Toast.LENGTH_LONG).show();
+            Toast.makeText(Main5Activity.this, "You got it in " + score + " moves! Score: " + result, Toast.LENGTH_LONG).show();
 
             String s4b = Integer.toString(scores);
             scoresRef.push().setValue(s4b);

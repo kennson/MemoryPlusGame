@@ -55,15 +55,5 @@
         android:layout_marginEnd="15dp"
         android:text="Next" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button_submit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:textAlignment="center"
-        android:text="Shake phone once to change the word" />
-
 
 </RelativeLayout>
