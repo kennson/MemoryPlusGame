@@ -64,6 +64,7 @@ public class Main2Activity extends AppCompatActivity {
         button_nexts.setVisibility(View.INVISIBLE);
 
 
+
         newsGame();
 
         Intent intent = new Intent(Main2Activity.this, ShakeService.class);
@@ -105,7 +106,7 @@ public class Main2Activity extends AppCompatActivity {
                     button_check.setEnabled(false);
                     button_news.setEnabled(true);
                     tries++;
-                    Toast.makeText(Main2Activity.this, "Success! You got it in " + tries + " moves! Score: " + score , Toast.LENGTH_LONG).show();
+                    Toast.makeText(Main2Activity.this, "Success! Your score is: " + score , Toast.LENGTH_LONG).show();
                     button_nexts.setVisibility(View.VISIBLE);
                     String s2 = Integer.toString(score);
                     scoresRef.push().setValue(s2);
@@ -124,6 +125,7 @@ public class Main2Activity extends AppCompatActivity {
                     textview_info.setText("Try Again!");
                     Toast.makeText(Main2Activity.this, "Try Again!", Toast.LENGTH_LONG).show();
                     //button_nexts.setVisibility(View.VISIBLE);
+                    button_news.setVisibility(View.VISIBLE);
                     String s2 = Integer.toString(score);
                     scoresRef.push().setValue(s2);
                 }
@@ -164,7 +166,7 @@ public class Main2Activity extends AppCompatActivity {
     private void newsGame(){
 
         edittext_guess.setText("");
-        button_news.setEnabled(false);
+        button_news.setVisibility(View.INVISIBLE);
         button_check.setEnabled(true);
         textview_info.setText("Guess the Word");
         tvWord = FirebaseDatabase.getInstance().getReference().child("dictionary1");
@@ -199,7 +201,7 @@ public class Main2Activity extends AppCompatActivity {
         //currentWord = dict2[r.nextInt(dict2.length)];
         //textview_word.setText(shuffleWord(currentWord));
         edittext_guess.setText("");
-        button_news.setEnabled(false);
+        button_news.setVisibility(View.INVISIBLE);
         button_check.setEnabled(true);
         textview_info.setText("Guess the Word");
         tvWord2 = FirebaseDatabase.getInstance().getReference().child("dictionary2");
@@ -234,7 +236,7 @@ public class Main2Activity extends AppCompatActivity {
         //currentWord = dict3[r.nextInt(dict3.length)];
         //textview_word.setText(shuffleWord(currentWord));
         edittext_guess.setText("");
-        button_news.setEnabled(false);
+        button_news.setVisibility(View.INVISIBLE);
         button_check.setEnabled(true);
         textview_info.setText("Guess the Word");
         tvWord3 = FirebaseDatabase.getInstance().getReference().child("dictionary3");

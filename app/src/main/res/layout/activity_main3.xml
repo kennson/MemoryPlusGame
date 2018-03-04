@@ -28,21 +28,23 @@
 
     <Button
         android:id="@+id/button_submit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edittext_try"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
+        android:background="@color/colorAccent"
         android:text="Submit" />
 
 
     <Button
         android:id="@+id/button_ok"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
+        android:background="@color/colorAccent"
         android:text="OK" />
 
     <Button
@@ -53,6 +55,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="15dp"
         android:layout_marginEnd="15dp"
+        android:background="@color/colorAccent"
         android:text="Next" />
 
 

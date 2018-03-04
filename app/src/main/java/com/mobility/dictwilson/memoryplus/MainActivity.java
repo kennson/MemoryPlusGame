@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
         if(curGuess == curLevel){
             disableButtons();
             if(curLevel == 12){
-                Toast.makeText(MainActivity.this, "Success! You got it in " + tries + " moves! Score: " + score, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Wow! Your score is: " + score, Toast.LENGTH_LONG).show();
                 button_new.setVisibility(View.VISIBLE);
                 button_next.setVisibility(View.VISIBLE);
 
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void lostGame() {
         score = 90;
-        Toast.makeText(MainActivity.this, "You got it in " + tries + " moves! Try Again! Score: " + score, Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, "Wow! Your score is: " + score, Toast.LENGTH_LONG).show();
         disableButtons();
         button_new.setVisibility(View.VISIBLE);
         button_next.setVisibility(View.VISIBLE);

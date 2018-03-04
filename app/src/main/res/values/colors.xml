@@ -2,8 +2,9 @@
 <resources>
     <color name="colorPrimary">#bdbdbd</color>
     <color name="colorPrimaryDark">#707070</color>
-    <color name="colorAccent">#FFA000</color>
+    <color name="colorAccent">#33B5FF</color>
     <color name="colorNotify">#FF0000</color>
     <color name="grey_100">#F5F5F5</color>
     <color name="grey_300">#E0E0E0</color>
+    <color name="gold">#FFDD33</color>
 </resources>

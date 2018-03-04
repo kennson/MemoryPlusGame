@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="64dp"
         android:layout_marginTop="59dp"
+        android:layout_marginLeft="15dp"
         android:text="LastName" />
 
     <EditText
@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="12dp"
         android:layout_marginTop="45dp"
         android:ems="10"
         android:inputType="textPersonName" />
@@ -52,7 +51,7 @@
         android:layout_alignBaseline="@+id/editText3"
         android:layout_alignBottom="@+id/editText3"
         android:layout_alignStart="@+id/textView11"
-        android:text="Email" />
+        android:text="Email Address" />
 
     <EditText
         android:id="@+id/editText3"
@@ -82,16 +81,16 @@
         android:ems="10"
         android:inputType="date" />
 
-
     <Button
         android:id="@+id/button28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText5"
+        android:layout_alignBottom="@+id/editText5"
         android:layout_below="@+id/editText5"
-        android:layout_marginTop="26dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="26dp"
+        android:background="@color/colorAccent"
         android:text="Register" />
-
 
     <Button
         android:id="@+id/button30"
@@ -99,7 +98,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/button28"
-        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/colorAccent"
         android:text="Next" />
 
     <TextView
@@ -107,8 +107,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText"
         android:layout_marginTop="19dp"
-        android:text="Registration" />
+        android:layout_centerHorizontal="true"
+        android:text="Account Registration" />
 
 </RelativeLayout>

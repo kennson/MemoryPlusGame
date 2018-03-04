@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Main6Activity extends AppCompatActivity {
 
-    Button button18, button20, button21, button22;
+    Button button18, button20, button21, button22, button23;
     TextView textView2, textView4, textView6, textView8, textView16;
 
     private FirebaseAuth mAuth;
@@ -31,6 +31,7 @@ public class Main6Activity extends AppCompatActivity {
         button20 = (Button) findViewById(R.id.button20);
         button21 = (Button) findViewById(R.id.button21);
         button22 = (Button) findViewById(R.id.button22);
+        button23 = (Button) findViewById(R.id.button23);
         textView2 = (TextView)findViewById(R.id.textView2);
         textView4 = (TextView)findViewById(R.id.textView4);
         textView6 = (TextView)findViewById(R.id.textView6);
@@ -150,6 +151,13 @@ public class Main6Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Main6Activity.this,MainActivity.class));
+            }
+        });
+
+        button23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Main6Activity.this,Main9Activity.class));
             }
         });
 

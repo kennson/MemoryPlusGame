@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Make a Single Color" />
+        android:text="Match the Color" />
 
     <Button
         android:id="@+id/button13"
@@ -30,12 +30,12 @@
         android:layout_marginTop="20dp" />
 
     <Button
-    android:id="@+id/button15"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/button14"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="20dp" />
+        android:id="@+id/button15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button14"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/button16"
@@ -47,12 +47,14 @@
 
     <Button
         android:id="@+id/button17"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/button_check"
-        android:layout_marginBottom="74dp"
-        android:text="New" />
+        android:layout_marginBottom="150dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:text="Reset" />
 
     <Button
         android:id="@+id/button19"
@@ -62,6 +64,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="15dp"
         android:layout_marginEnd="15dp"
+        android:background="@color/colorAccent"
         android:text="Next" />
 
 

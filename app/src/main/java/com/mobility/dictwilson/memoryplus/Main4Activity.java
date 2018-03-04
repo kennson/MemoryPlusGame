@@ -89,7 +89,9 @@ public class Main4Activity extends AppCompatActivity implements View.OnClickList
 
         mStartButton = (Button) findViewById(R.id.button_start_verification);
         mVerifyButton = (Button) findViewById(R.id.button_verify_phone);
+        mVerifyButton.setVisibility(View.INVISIBLE);
         mResendButton = (Button) findViewById(R.id.button_resend);
+        mResendButton.setVisibility(View.INVISIBLE);
         mSignOutButton = (Button) findViewById(R.id.sign_out_button);
 
         mStartButton.setOnClickListener(this);

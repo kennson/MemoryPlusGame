@@ -40,15 +40,15 @@ public class Main8Activity extends AppCompatActivity {
         Intent intent = getIntent();
 
         String lname = intent.getStringExtra("LName");
-        textView19.setText(lname);
+        textView19.setText("Lastname: " + lname);
         String score1 = intent.getStringExtra("Score1");
-        textView20.setText(score1);
+        textView20.setText("Recall the Dots " + score1);
         String score2 = intent.getStringExtra("Score2");
-        textView21.setText(score2);
+        textView21.setText("Guess the Word" + score2);
         String score3 = intent.getStringExtra("Score3");
-        textView22.setText(score3);
+        textView22.setText("Guess a Number" + score3);
         String score4 = intent.getStringExtra("Score4");
-        textView23.setText(score4);
+        textView23.setText("Match the Color" + score4);
 
 
         send.setOnClickListener(new View.OnClickListener() {
@@ -68,10 +68,10 @@ public class Main8Activity extends AppCompatActivity {
 
     protected void sendSMSMessage() {
         phoneNo = MO.getText().toString();
-        all_data = textView19.getText().toString() +
-                textView20.getText().toString() +
-                textView21.getText().toString()+
-                textView22.getText().toString() +
+        all_data = "Memory Plus Player Name: " + textView19.getText().toString() + " Recall the Dots: " +
+                textView20.getText().toString() + " Guess the Word: " +
+                textView21.getText().toString()+ " Guess a Number: " +
+                textView22.getText().toString() + " Match the Color: " +
                 textView23.getText().toString();
 
         if (ContextCompat.checkSelfPermission(this,

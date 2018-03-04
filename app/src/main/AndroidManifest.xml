@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobility.dictwilson.memoryplus">
 
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +24,8 @@
         <activity android:name=".Main5Activity" />
         <activity android:name=".Main6Activity" />
         <activity android:name=".Main7Activity" />
-        <activity android:name=".Main8Activity"></activity>
+        <activity android:name=".Main8Activity" />
+        <activity android:name=".Main9Activity"></activity>
     </application>
 
 </manifest>

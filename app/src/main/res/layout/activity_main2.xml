@@ -39,21 +39,24 @@
         android:text="" />
 
     <Button
-        android:id="@+id/button_check"
-        android:layout_width="match_parent"
+        android:id="@+id/button_shuffle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edittext_guess"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="CHECK" />
+        android:background="@color/colorAccent"
+        android:text="Shuffle" />
 
     <Button
         android:id="@+id/button_news"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/button_check"
         android:layout_marginBottom="74dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
         android:text="NEW" />
 
 
@@ -65,16 +68,18 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="15dp"
         android:layout_marginEnd="15dp"
+        android:background="@color/colorAccent"
         android:text="Next" />
 
     <Button
-        android:id="@+id/button_shuffle"
-        android:layout_width="match_parent"
+        android:id="@+id/button_check"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_check"
+        android:layout_below="@+id/button_shuffle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp"
-        android:text="SHUFFLE" />
+        android:background="@color/colorAccent"
+        android:text="CHECK" />
 
     <TextView
         android:id="@+id/textView17"
@@ -82,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_shuffle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="85dp"
         android:text="Shake phone to change the word" />
 
 

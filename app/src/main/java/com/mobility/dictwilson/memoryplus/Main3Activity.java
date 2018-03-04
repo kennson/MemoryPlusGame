@@ -38,6 +38,7 @@ public class Main3Activity extends AppCompatActivity {
 
         textview_msg = (TextView)findViewById(R.id.textview_infos);
         edittext_try = (EditText)findViewById(R.id.edittext_try);
+        edittext_try.setVisibility(View.INVISIBLE);
         button_ok = (Button)findViewById(R.id.button_ok);
         button_submit = (Button)findViewById(R.id.button_submit);
         button_nextss = (Button)findViewById(R.id.button_nextss);
@@ -82,8 +83,8 @@ public class Main3Activity extends AppCompatActivity {
         numberTries++;
         score--;
             if(n == numberToFind){
-                Toast.makeText(this, "Congratulation! You found the number " + numberToFind + " in " + numberTries + " tries! Score: "+ score, Toast.LENGTH_LONG).show();
-
+                Toast.makeText(this, "Congratulation! Your score is: "+ score, Toast.LENGTH_LONG).show();
+                edittext_try.setVisibility(View.INVISIBLE);
                 String s3 = Integer.toString(score);
                 scoresRef.push().setValue(s3);
                 button_submit.setVisibility(View.INVISIBLE);
